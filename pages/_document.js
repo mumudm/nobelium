@@ -18,14 +18,14 @@ class MyDocument extends Document {
             <>
               <link
                 rel="preload"
-                href="/fonts/Merriweather.var.woff2"
+                href="/fonts/SourceSerif.var.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
               />
               <link
                 rel="preload"
-                href="/fonts/Merriweather-Italic.var.woff2"
+                href="/fonts/SourceSerif-Italic.var.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
@@ -35,14 +35,14 @@ class MyDocument extends Document {
             <>
               <link
                 rel="preload"
-                href="/fonts/Inter.var.woff2"
+                href="/fonts/IBMPlexSansVar-Roman.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
               />
               <link
                 rel="preload"
-                href="/fonts/Inter-Italic.var.woff2"
+                href="/fonts/IBMPlexSansVar-Italic.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
@@ -92,6 +92,27 @@ class MyDocument extends Document {
               data-ackee-server={BLOG.analytics.ackeeConfig.dataAckeeServer}
               data-ackee-domain-id={BLOG.analytics.ackeeConfig.domainId}
             ></script>
+          )}
+          {BLOG.autoCollapsedNavBar === true && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+              var windowTop=0;
+              function scrollTrigger(){
+                  let scrollS = window.scrollY;
+                  let nav = document.querySelector('.sticky-nav');
+                  if(scrollS >= windowTop){
+                      nav.style.opacity = 0;
+                      windowTop = scrollS;
+                  }else{
+                      nav.style.opacity = 1;
+                      windowTop = scrollS;
+                  }
+              };
+              window.addEventListener('scroll',scrollTrigger);
+          `
+              }}
+            />
           )}
           {BLOG.analytics && BLOG.analytics.provider === 'ga' && (
             <>
