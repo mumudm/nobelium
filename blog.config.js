@@ -4,7 +4,7 @@ const BLOG = {
   email: 'mumudxc@gmail.com',
   link: 'https://www.mumudm.top',
   description: 'This gonna be an awesome website.',
-  lang: 'en-US',
+  lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP']
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
   lightBackground: '#ffffff', // use hex value, don't forget '#' e.g #fffefc
